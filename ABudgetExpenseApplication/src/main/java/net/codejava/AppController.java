@@ -6,7 +6,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
  
 @Controller
 public class AppController {
@@ -44,4 +47,30 @@ public class AppController {
     	return "users";
     }
     
+	@Autowired
+	private CategoryService service;
+	
+	@RequestMapping("/")
+	
+	public String viewHomePage(Model model) {
+		List<Category> listCategory = service.listAll();
+		model.addAttribute("listCategory",listCategory);
+		return "Categoryindex";
+	}
+	
+@RequestMapping("/new")
+	
+	public String showCategoryForm(Model model) {
+
+		Category category = new Category();
+		model.addAttribute("Category",category);
+		return "new_category";
+	}
+    
+@RequestMapping(value = "/save", method = RequestMethod.POST)
+public String saveCategory(@ModelAttribute("category") Category category) {
+	service.save(category);
+	return "redirect:/";
+	
+}
 }
