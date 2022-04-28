@@ -46,31 +46,31 @@ public class AppController {
     model.addAttribute("listUsers", listUsers);
     	return "users";
     }
-    
-	@Autowired
-	private CategoryService service;
-	
-	@RequestMapping("/")
-	
-	public String viewHomePage(Model model) {
-		List<Category> listCategory = service.listAll();
-		model.addAttribute("listCategory",listCategory);
-		return "Categoryindex";
-	}
-	
-@RequestMapping("/new")
-	
-	public String showCategoryForm(Model model) {
-
-		Category category = new Category();
-		model.addAttribute("Category",category);
-		return "new_category";
-	}
-    
-@RequestMapping(value = "/save", method = RequestMethod.POST)
-public String saveCategory(@ModelAttribute("category") Category category) {
-	service.save(category);
-	return "redirect:/";
-	
-}
+//    
+//	@Autowired
+//	private CategoryService service;
+//	
+//	@RequestMapping("/")
+//	
+//	public String viewHomePage(Model model) {
+//		List<Category> listCategory = service.listAll();
+//		model.addAttribute("listCategory",listCategory);
+//		return "Categoryindex";
+//	}
+//	
+//@RequestMapping("/new")
+//	
+//	public String showCategoryForm(Model model) {
+//
+//		Category category = new Category();
+//		model.addAttribute("Category",category);
+//		return "new_category";
+//	}
+//    
+//@RequestMapping(value = "/save", method = RequestMethod.POST)
+//public String saveCategory(@ModelAttribute("category") Category category) {
+//	service.save(category);
+//	return "redirect:/";
+//	
+//}
 }
