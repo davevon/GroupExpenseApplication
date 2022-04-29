@@ -47,12 +47,21 @@ public class AppController {
     model.addAttribute("listUsers", listUsers);
     	return "users";
     }
+<<<<<<< HEAD
     
 //	@Autowired
 //	private CategoryService service;
 //	
 //	@RequestMapping("/")
 	
+=======
+//    
+//	@Autowired
+//	private CategoryService service;
+//	
+//	@RequestMapping("/")
+//	
+>>>>>>> branch 'master' of https://github.com/davevon/GroupExpenseApplication.git
 //	public String viewHomePage(Model model) {
 //		List<Category> listCategory = service.listAll();
 //		model.addAttribute("listCategory",listCategory);
