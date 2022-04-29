@@ -1,5 +1,6 @@
 package net.codejava;
 import java.util.List;
+import java.util.Locale.Category;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -47,30 +48,30 @@ public class AppController {
     	return "users";
     }
     
-	@Autowired
-	private CategoryService service;
+//	@Autowired
+//	private CategoryService service;
+//	
+//	@RequestMapping("/")
 	
-	@RequestMapping("/")
-	
-	public String viewHomePage(Model model) {
-		List<Category> listCategory = service.listAll();
-		model.addAttribute("listCategory",listCategory);
-		return "Categoryindex";
-	}
-	
-@RequestMapping("/new")
-	
-	public String showCategoryForm(Model model) {
-
-		Category category = new Category();
-		model.addAttribute("Category",category);
-		return "new_category";
-	}
-    
-@RequestMapping(value = "/save", method = RequestMethod.POST)
-public String saveCategory(@ModelAttribute("category") Category category) {
-	service.save(category);
-	return "redirect:/";
-	
-}
+//	public String viewHomePage(Model model) {
+//		List<Category> listCategory = service.listAll();
+//		model.addAttribute("listCategory",listCategory);
+//		return "Categoryindex";
+//	}
+//	
+//@RequestMapping("/new")
+//	
+//	public String showCategoryForm(Model model) {
+//
+//		Category category = new Category();
+//		model.addAttribute("Category",category);
+//		return "new_category";
+//	}
+//    
+//@RequestMapping(value = "/save", method = RequestMethod.POST)
+//public String saveCategory(@ModelAttribute("category") Category category) {
+//	service.save(category);
+//	return "redirect:/";
+//	
+//}
 }
