@@ -47,7 +47,7 @@ public class AppController {
     	return "users";
     }
     
-	@Autowired
+	/*@Autowired
 	private CategoryService service;
 	
 	@RequestMapping("/")
@@ -72,5 +72,5 @@ public String saveCategory(@ModelAttribute("category") Category category) {
 	service.save(category);
 	return "redirect:/";
 	
-}
+}*/
 }
