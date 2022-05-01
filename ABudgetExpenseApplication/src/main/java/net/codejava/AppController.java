@@ -1,5 +1,6 @@
 package net.codejava;
 import java.util.List;
+import java.util.Locale.Category;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -46,6 +47,7 @@ public class AppController {
     model.addAttribute("listUsers", listUsers);
     	return "users";
     }
+
     
 	/*@Autowired
 	private CategoryService service;
@@ -61,7 +63,10 @@ public class AppController {
 @RequestMapping("/new")
 	
 	public String showCategoryForm(Model model) {
+=======
+>>>>>>> branch 'master' of https://github.com/davevon/GroupExpenseApplication.git
 
+<<<<<<< HEAD
 		Category category = new Category();
 		model.addAttribute("Category",category);
 		return "new_category";
@@ -73,4 +78,6 @@ public String saveCategory(@ModelAttribute("category") Category category) {
 	return "redirect:/";
 	
 }*/
+
+
 }
