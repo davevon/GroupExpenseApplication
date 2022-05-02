@@ -42,16 +42,17 @@
 	<body>
 	<div class="container text-center">
 		<div><h1>Expense List</h1></div>
-	 
+	 &nbsp;
+		
 	<div>
 	<table class= "table">
 	<thead class"thead-dark">
 	<tr>
 	<th>ID</th>
-	<th>expenseDate</th>
-	<th>expenseAmount</th>
-	<th>category</th>
-	<th>expenseNote</th>
+	<th>Expense Date</th>
+	<th>Expense Amount</th>
+	<th>Category</th>
+	<th>Expense Note</th>
 	<th>Total</th>
 	</tr>
 	</thead>
@@ -63,7 +64,6 @@
 	<td th:text="${expense.expenseAmount}"></td>
 	<td th:text="${expense.category.name}"></td>
 	<td th:text="${expense.expenseNote}"></td>
-	
 	<td>
 		<a th:href="@{'/expenses/edit/' + ${expense.id}}">Edit</a> 
 		&nbsp;
