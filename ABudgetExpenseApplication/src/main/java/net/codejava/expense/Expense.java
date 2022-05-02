@@ -30,19 +30,10 @@ public class Expense {
 	//@Column(nullable=false)
 	private Date expenseDate;
 	
-	private  float expenseAmount = 0;
+	private  float expenseAmount;
 	
-	private float expenseNull;
 	
-	public float getExpenseNull() {
-		return expenseNull;
-	}
-	private float Calculation;
 	
-	public float getCalculation() {
-		return  expenseAmount + expenseAmount;
-
-	}
 	private float Total;
 	
 	

@@ -6,15 +6,45 @@
 	  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
 	    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 	    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<title>Sum Total for Column in jQuery </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('table thead th').each(function(i) {
+                calculateColumn(i);
+            });
+        });
+
+        function calculateColumn(index) {
+            var total = 0;
+            $('table tr').each(function() {
+                var value = parseInt($('td', this).eq(index).text());
+                if (!isNaN(value)) {
+                    total += value;
+                }
+            });
+            $('table tfoot td').eq(index).text('Total: ' + total);
+            console.log(total);
+            document.getElementById("val").innerHTML = "Sum = " + total;
+        }
+    </script>
 	
-	
+	<!-- <script>
+				var table = document.getElementById("table"), sumVal = 0;
+				for (var i = 1; i < table.rows.length; i++)
+				 {
+					sumVal = sumVal + parseInt(table.rows[i]).cell[6].innerHTML;	
+				}
+				document.getElementById("val").innerHTML = "Total = " + sumVal;
+				console.log(sumVal);
+			</script> -->
 	</head>
 	<body>
 	<div class="container text-center">
 		<div><h1>Expense List</h1></div>
 	 
 	<div>
-	<table class= "table table-bordered">
+	<table class= "table">
 	<thead class"thead-dark">
 	<tr>
 	<th>ID</th>
@@ -23,37 +53,32 @@
 	<th>category</th>
 	<th>expenseNote</th>
 	<th>Total</th>
-	<th></th>
 	</tr>
 	</thead>
+	
 	<tbody>
-	
 	<tr th:each="expense : ${listExpenses}">
-	
-	
-	
 	<td th:text="${expense.id}"></td>
 	<td th:text="${expense.expenseDate}"></td>
 	<td th:text="${expense.expenseAmount}"></td>
 	<td th:text="${expense.category.name}"></td>
 	<td th:text="${expense.expenseNote}"></td>
-	<td th:text="${expense.getCalculation}"></td>
+	
 	<td>
-		<a th:href="@{'/expenses/edit/' + ${expense.id}}">Edit</a>
+		<a th:href="@{'/expenses/edit/' + ${expense.id}}">Edit</a> 
 		&nbsp;
 		&nbsp;
-	<a th:href="@{'/expenses/delete/' + ${expense.id}}">Delete</a>
+	<a th:href="@{'/expenses/delete/' + ${expense.id}}">Delete</a> </td>
 	</tr>
-	
-	
-	
 	</tbody>
 	</table>
 	
-	 
-	 
 	    </div>
 	</div>
+	<span id= "val"> This is your money </span>
+	
+			
+
 	</body>
 	</html>
 	
