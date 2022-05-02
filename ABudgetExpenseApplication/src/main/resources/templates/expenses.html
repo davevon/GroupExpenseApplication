@@ -18,7 +18,7 @@
         function calculateColumn(index) {
             var total = 0;
             $('table tr').each(function() {
-                var value = parseInt($('td', this).eq(index).text());
+                var value = parseFloat($('td', this).eq(index).text());
                 if (!isNaN(value)) {
                     total += value;
                 }
@@ -39,6 +39,8 @@
 				console.log(sumVal);
 			</script> -->
 	</head>
+	
+	
 	<body>
 	<div class="container text-center">
 		<div><h1>Expense List</h1></div>
@@ -53,7 +55,6 @@
 	<th>Expense Amount</th>
 	<th>Category</th>
 	<th>Expense Note</th>
-	<th>Total</th>
 	</tr>
 	</thead>
 	<!-- work -->
@@ -72,13 +73,9 @@
 	</tr>
 	</tbody>
 	</table>
-	
 	    </div>
 	</div>
-	<span id= "val"> This is your money </span>
-	
-			
-
+	<span id= "val"> This is your money </span>	
 	</body>
 	</html>
 	
