@@ -8,6 +8,18 @@
 	    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<title>Sum Total for Column in jQuery </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"> </script>
+<script src="https://cdn.datatables.net/searchpanes/2.0.0/js/dataTables.searchPanes.min.js"> </script>
+<script src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"> </script>
+<script src="https://code.highcharts.com/highcharts.js"> </script>
+
+
+
+    
     <script>
         $(document).ready(function() {
             $('table thead th').each(function(i=2) {
@@ -28,6 +40,12 @@
             document.getElementById("val").innerHTML = "You have spent  $" + total + " " + " in total";
         }
     </script>
+    
+  <!--  <script>
+    $(document).ready(function() {
+    $('#table').DataTable();
+    } ); 
+</script>-->
 	
 	<!-- <script>
 				var table = document.getElementById("table"), sumVal = 0;
@@ -42,14 +60,18 @@
 	
 	
 	<body>
+<<<<<<< HEAD
 	<button onclick="history.back()">Back</button>
 	 &nbsp;
+=======
+	<h2 id= "val" style = " text-align: center"> This is your money </h2 >	
+>>>>>>> branch 'master' of https://github.com/davevon/GroupExpenseApplication.git
 	<div class="container text-center">
 		<div><h1>Expense List</h1></div>
 	 &nbsp;
 		
 	<div>
-	<table class= "table">
+	<table id = "table">
 	<thead class"thead-dark">
 	<tr>
 	<th>ID</th>
@@ -57,6 +79,7 @@
 	<th>Expense Amount</th>
 	<th>Category</th>
 	<th>Expense Note</th>
+	<th>Action</th>
 	</tr>
 	</thead>
 	<!-- work -->
@@ -77,6 +100,7 @@
 	</table>
 	    </div>
 	</div>
+<<<<<<< HEAD
 	<span id= "val"> This is your money </span>	
 	&nbsp;
 	&nbsp;
@@ -86,6 +110,70 @@
 	&nbsp;
 	 <p style ="color:blue; font-size: 20px; left: 0; bottom: 0; position: center;  text-align: center;"><a th:href="@{/expense/new}">Create another expense</a></p>
 	
+=======
+
+	
+	<!---->
+	
+	<script>
+	
+	
+ $(document).ready(function () {
+    // Create DataTable
+    var table = $('#table').DataTable({
+      //  dom: 'Pfrtip',
+    });
+ 
+    // Create the chart with initial data
+    var container = $('<div/>').insertBefore(table.table().container());
+ 
+    var chart = Highcharts.chart(container[0], {
+        chart: {
+            type: 'pie',
+        },
+        title: {
+            text: 'Categories Spending',
+        },
+        series: [
+            {
+                data: chartData(table),
+            },
+        ],
+    });
+ 
+    // On each draw, update the data in the chart
+    table.on('draw', function () {
+        chart.series[0].setData(chartData(table));
+    });
+});
+ 
+function chartData(table) {
+    var counts = {};
+ 
+    // Count the number of entries for each position
+    table
+        .column(3, { search: 'applied' })
+        .data()
+        .each(function (val) {
+            if (counts[val]) {
+                counts[val] += 1;
+            } else {
+                counts[val] = 1;
+            }
+        });
+ 
+    // And map it to the format highcharts uses
+    return $.map(counts, function (val, key) {
+        return {
+            name: key,
+            y: val,
+        };
+    });
+}
+	
+	 </script>
+	<!---->
+>>>>>>> branch 'master' of https://github.com/davevon/GroupExpenseApplication.git
 	</body>
 	</html>
 	
