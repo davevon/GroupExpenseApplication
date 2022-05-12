@@ -10,6 +10,8 @@
 	
 	</head>
 	<body>
+	<button onclick="history.back()">Back</button>
+	 &nbsp;
 	<div class="container text-center">
 		<div><h1> Create new Category</h1></div>
 	 <form th:action="@{/categories/save}" th:object="${category}" method="post"
